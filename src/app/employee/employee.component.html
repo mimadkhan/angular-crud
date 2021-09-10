@@ -1,0 +1,27 @@
+<div class="col-sm-12 card bg-light mb-3">
+    <div class="card-body" *ngIf="mode === 'Form'">
+        <div class="card-body">
+      <div *ngIf="objEmp">
+        <Employee-Form
+          [objEmployee]="objEmp"
+          (notifyCreate)="create($event)"
+          (notityUpdate)="update($event)"
+          (notifyCancel)="cancel()"
+        >
+        </Employee-Form>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12 card bg-light mb-3">
+    <div class="card-body" *ngIf="mode === 'List'">
+      <div *ngIf="EmployeeList">
+        <Employee-List
+          [employeeList]="EmployeeList"
+          (notifyshowedit)="showEdit()"
+          (notifySelect)="select($event)"
+          (notifyDelete)="delete($event)" 
+        >
+        </Employee-List>
+      </div>
+    </div>
+  </div>

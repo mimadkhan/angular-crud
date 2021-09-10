@@ -1,0 +1,55 @@
+<div class="container">
+    <h1>Employee Form</h1>
+    <div class="form-group row">
+      <div class="col-sm-4">
+        <div class="form-group has-success">
+          <label for="inputfirstName" class="form-control-label">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputFirstName"
+            [(ngModel)]="objEmployee.name"
+            placeholder="name"
+            required
+          />
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group has-success">
+          <label for="inputlastName" class="form-control-label">City</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputLastName"
+            [(ngModel)]="objEmployee.city"
+            placeholder="city"
+            required
+          />
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group has-success">
+          <label for="inputaddress" class="form-control-label">Address</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputAddress"
+            [(ngModel)]="objEmployee.address"
+            placeholder="address"
+            required
+          />
+        </div>
+      </div>
+    </div>
+    <div class="col-md-1" style="float: right">
+      <div class="form-group has-success">
+        <button
+          type="button"
+          class="btn btn-primary btn-block"
+          (click)="onSave()"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
