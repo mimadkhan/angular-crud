@@ -2,6 +2,7 @@ import { Employee } from './../models/employee.model';
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { ThisReceiver } from '@angular/compiler';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-employee',
@@ -15,7 +16,7 @@ export class EmployeeComponent implements OnInit {
   public objEmp:Employee=new Employee();
   public mode:string= 'List';
 
-  constructor(private dataSRV : DataService) { }
+  constructor(private dataSRV : DataService,private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getData();
@@ -43,6 +44,7 @@ export class EmployeeComponent implements OnInit {
   create(objEmp:Employee){
     this.dataSRV.create(objEmp).subscribe(
       (res)=>{
+        this.toastr.success('Employee Success!', 'Created!');
         this.getData();
         console.log('Data Created Successfully !')
         console.log(res);
@@ -56,6 +58,7 @@ export class EmployeeComponent implements OnInit {
   update(objEmp:Employee){
     this.dataSRV.update(objEmp.id,objEmp).subscribe(
       (res)=>{
+        this.toastr.success('Employee Successful!', 'Update!');
         this.getData();
         console.log('Data Updated Successfully !')
       },
@@ -68,6 +71,7 @@ export class EmployeeComponent implements OnInit {
   delete(objEmp:Employee){
     this.dataSRV.delete(objEmp.id).subscribe(
       (res)=>{
+        this.toastr.error('Employee Successfully', 'Delete !');
         this.getData();
         console.log('Data deleted Successfully !')
       },
