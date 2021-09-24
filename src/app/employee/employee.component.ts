@@ -78,6 +78,6 @@ export class EmployeeComponent implements OnInit {
   }
   cancel(){
     this.objEmp=new Employee();
-    this.mode= 'Form';
+    this.mode= 'List';
   }
 }
