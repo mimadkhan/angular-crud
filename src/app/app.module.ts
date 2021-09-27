@@ -8,7 +8,7 @@ import { EmployeeComponent } from './employee/employee.component';
 import { FormComponent } from './employee/form/form.component';
 import { ListComponent } from './employee/list/list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { NgxSpinnerModule } from "ngx-spinner";
 import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
@@ -24,6 +24,7 @@ import { ToastrModule } from 'ngx-toastr';
     AppRoutingModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(),
+    NgxSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

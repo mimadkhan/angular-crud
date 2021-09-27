@@ -1,5 +1,6 @@
 import { Employee } from './../../models/employee.model';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'Employee-List',
@@ -13,9 +14,16 @@ export class ListComponent implements OnInit {
   @Output() notifyshowedit= new EventEmitter<Employee>();
   @Output() notifyDelete= new EventEmitter<Employee>();
   
-  constructor() { }
+  constructor(private spinner: NgxSpinnerService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    // /** spinner starts on init */
+    // this.spinner.show();
+
+    // setTimeout(() => {
+    //   /** spinner ends after 5 seconds */
+    //   this.spinner.hide();
+    // }, 3000);
   }
  
   onSelect(objEmp: Employee): void {

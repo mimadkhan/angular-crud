@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { ThisReceiver } from '@angular/compiler';
 import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-employee',
@@ -16,10 +17,19 @@ export class EmployeeComponent implements OnInit {
   public objEmp:Employee=new Employee();
   public mode:string= 'List';
 
-  constructor(private dataSRV : DataService,private toastr: ToastrService) { }
+  constructor(private dataSRV : DataService,
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.getData();
+       /** spinner starts on init */
+       this.spinner.show();
+
+       setTimeout(() => {
+         /** spinner ends after 5 seconds */
+         this.spinner.hide();
+       }, 3000);
   }
   
   getData(){
@@ -42,9 +52,13 @@ export class EmployeeComponent implements OnInit {
     this.mode= 'Form';
     }
   create(objEmp:Employee){
+    this.spinner.show();
     this.dataSRV.create(objEmp).subscribe(
       (res)=>{
         this.toastr.success('Employee Success!', 'Created!');
+        setTimeout(()=>{
+          this.spinner.hide()
+        })
         this.getData();
         console.log('Data Created Successfully !')
         console.log(res);
@@ -56,9 +70,13 @@ export class EmployeeComponent implements OnInit {
     this.mode= 'List';
   }
   update(objEmp:Employee){
+    this.spinner.show();
     this.dataSRV.update(objEmp.id,objEmp).subscribe(
       (res)=>{
         this.toastr.success('Employee Successful!', 'Update!');
+        setTimeout(()=>{
+          this.spinner.hide()
+        })
         this.getData();
         console.log('Data Updated Successfully !')
       },
@@ -69,9 +87,13 @@ export class EmployeeComponent implements OnInit {
     this.mode= 'List';
   }
   delete(objEmp:Employee){
+    this.spinner.show();
     this.dataSRV.delete(objEmp.id).subscribe(
       (res)=>{
         this.toastr.error('Employee Successfully', 'Delete !');
+        setTimeout(()=>{
+          this.spinner.hide()
+        })
         this.getData();
         console.log('Data deleted Successfully !')
       },
