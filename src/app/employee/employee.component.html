@@ -1,6 +1,6 @@
 <div class="col-sm-12 card bg-light mb-3">
-    <div class="card-body" *ngIf="mode === 'Form'">
-        <div class="card-body">
+  <div class="card-body" *ngIf="mode === 'Form'">
+    <div class="card-body">
       <div *ngIf="objEmp">
         <Employee-Form
           [objEmployee]="objEmp"
@@ -19,10 +19,18 @@
           [employeeList]="EmployeeList"
           (notifyshowedit)="showEdit()"
           (notifySelect)="select($event)"
-          (notifyDelete)="delete($event)" 
+          (notifyDelete)="delete($event)"
         >
         </Employee-List>
       </div>
     </div>
   </div>
-  <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "large" color = "#fff" type = "ball-spin" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
+  <ngx-spinner
+    bdColor="rgba(0, 0, 0, 0.8)"
+    size="large"
+    color="#fff"
+    type="ball-spin"
+    [fullScreen]="true"
+    ><p style="color: white">Loading...</p></ngx-spinner
+  >
+</div>
