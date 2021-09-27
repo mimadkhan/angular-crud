@@ -102,7 +102,11 @@ export class EmployeeComponent implements OnInit {
     )
   }
   cancel(){
+    this.spinner.show();
     this.objEmp=new Employee();
     this.mode= 'List';
+    setTimeout(()=>{
+      this.spinner.hide()
+    })
   }
 }
