@@ -1,7 +1,6 @@
 import { Employee } from './../models/employee.model';
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
-import { ThisReceiver } from '@angular/compiler';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
 
