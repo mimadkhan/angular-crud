@@ -1,15 +1,30 @@
 <div class="container">
-  <div class="col-sm-1 pull-right"></div>
-  <button
-    type="button"
-    class="btn btn-primary btn-sm pull-right"
-    (click)="showedit()"
-  >
-    Add New
-  </button>
+  <div id="pdfTable" #pdfTable>
   <h1>Employee List</h1>
+  <div style="display: flex; float: right">
+    <button
+      type="button"
+      class="btn btn-success"
+      style="margin-right: 10px"
+      (click)="downloadAsPDF()"
+    >
+      Export To PDF
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary btn-sm pull-right"
+      (click)="showedit()"
+    >
+      Add New
+    </button>
+  </div>
+  <br />
+  <br />
   <div class="table-responsive panel panel-success">
-    <table class="table table-striped table-bordered table-hover" cellspacing="0">
+    <table
+      class="table table-striped table-bordered table-hover"
+      cellspacing="0"
+    >
       <thead>
         <tr>
           <th class="text-center">#</th>
@@ -46,4 +61,5 @@
       </tbody>
     </table>
   </div>
+</div>
 </div>
