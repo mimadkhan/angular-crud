@@ -20,13 +20,6 @@ export class ListComponent implements OnInit {
   @ViewChild('pdfTable')
   pdfTable!: ElementRef;
   
-  public downloadAsPDF() {
-    const pdfTable = this.pdfTable.nativeElement;
-    var html = htmlToPdfmake(pdfTable.innerHTML);
-    const documentDefinition = { content: html };
-    pdfMake.createPdf(documentDefinition).download(); 
-     
-  }
   @Input() employeeList: Employee[] = [];
   @Output() notifySelect = new EventEmitter<Employee>();
   @Output() notifyshowedit = new EventEmitter<Employee>();
@@ -77,7 +70,14 @@ export class ListComponent implements OnInit {
 
   //   //doc.save('tableToPdf.pdf');
   // }
-
+  
+  public downloadAsPDF() {
+    const pdfTable = this.pdfTable.nativeElement;
+    var html = htmlToPdfmake(pdfTable.innerHTML);
+    const documentDefinition = { content: html };
+    pdfMake.createPdf(documentDefinition).download(); 
+     
+  }
 
 }
 
