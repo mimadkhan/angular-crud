@@ -24,6 +24,9 @@ export class ListComponent implements OnInit {
   @Output() notifySelect = new EventEmitter<Employee>();
   @Output() notifyshowedit = new EventEmitter<Employee>();
   @Output() notifyDelete = new EventEmitter<Employee>();
+  
+  page = 1;
+  pageSize =10;
 
   constructor() {}
 
