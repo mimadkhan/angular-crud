@@ -60,6 +60,7 @@
       </table>
     </div>
   </div>
+  <div class="d-flex justify-content-between p-2" style="display: flex;">
   <ngb-pagination
     [collectionSize]="employeeList.length"
     [(page)]="page"
@@ -72,4 +73,11 @@
   <ng-template ngbPaginationLast>Last</ng-template>
   <ng-template ngbPaginationPrevious>Prev</ng-template>
   <ng-template ngbPaginationNext>Next</ng-template></ngb-pagination>
+
+  <select class="custom-select" style="width: auto;height: 30px;margin-top: 21px;margin-left: 63%;" name="pageSize" [(ngModel)]="pageSize">
+    <option [ngValue]="5">5 items per page</option>
+    <option [ngValue]="10">10 items per page</option>
+    <option [ngValue]="100">100 items per page</option>
+  </select>
+</div>
 </div>
