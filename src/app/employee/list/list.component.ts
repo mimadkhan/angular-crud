@@ -16,7 +16,6 @@ declare var require: any;
 })
 export class ListComponent implements OnInit {
 
-  // @ViewChild('pdfTable', {static: false}) pdfTable!: ElementRef;
   @ViewChild('pdfTable')
   pdfTable!: ElementRef;
   
@@ -44,35 +43,7 @@ export class ListComponent implements OnInit {
     this.notifyDelete.emit(objEmp);
   }
 
-  // Angular Html To Pdf 
-
-  // public downloadAsPDF() {
-
-  //   // const doc = new jsPDF();
-  //   const doc =  new jspdf("p", "pt", "a4");
-  //   const specialElementHandlers = {
-  //     '#editor': function (element:any, renderer:any) {
-  //       return true;
-  //     }
-  //   };
-
-  //   const pdfTable = this.pdfTable.nativeElement;
-  //   //let content=this.tablecontent.nativeElement;  
-
-
-  //   // doc.fromHTML(pdfTable.innerHTML, 15, 15, {
-  //   //   width: 190,
-  //   //   'elementHandlers': specialElementHandlers
-  //   // });
-  //   doc.html(pdfTable, {
-  //     callback: (doc) => {
-  //       doc.save('wpdffile.pdf');
-  //       //doc.output("dataurlnewwindow");
-  //     }
-  //  }); 
-
-  //   //doc.save('tableToPdf.pdf');
-  // }
+ // Angular HTML to PDF
   
   public downloadAsPDF() {
     const pdfTable = this.pdfTable.nativeElement;
