@@ -61,6 +61,8 @@ export class EmployeeComponent implements OnInit {
         console.log(res);
       },
       (error) => {
+        this.toastr.warning('Employee Data Can not save','Warning');
+        this.spinner.hide();
         console.log(error);
       }
     );
@@ -76,6 +78,8 @@ export class EmployeeComponent implements OnInit {
         console.log('Data Updated Successfully !');
       },
       (error) => {
+        this.toastr.warning('Employee data can not be updated','Warning !');
+        this.spinner.hide();
         console.log(error);
       }
     );
@@ -91,6 +95,8 @@ export class EmployeeComponent implements OnInit {
         console.log('Data deleted Successfully !');
       },
       (error) => {
+        this.toastr.warning('Employee data can not be deleted','Warning !');
+        this.spinner.hide();
         console.log(error);
       }
     );
@@ -99,8 +105,5 @@ export class EmployeeComponent implements OnInit {
     this.spinner.show();
     this.objEmp = new Employee();
     this.mode = 'List';
-    setTimeout(() => {
-      this.spinner.hide();
-    });
   }
 }
